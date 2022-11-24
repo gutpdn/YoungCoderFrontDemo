@@ -120,10 +120,11 @@ function Post(props) {
     temp.mstamp = temp.mstamp === "true";
     temp.isApplyAccum = temp.isApplyAccum === "true";
     temp.localSegments.segId = segId;
+    temp.saledate = temp.saledate.concat(" 00:00:00");
     Axios.post(url, temp).then((res) => {
       console.log(res.data);
     });
-    console.log(temp);
+    // console.log(temp);
     // console.log(productArray);
   }
   return (
@@ -320,9 +321,11 @@ function Post(props) {
           placeholder="redeems earn"
           type="text"
         />
-
-        <input disabled value={segId} />
         <div>
+          <p>Local Segments</p>
+          <input disabled value={segId} />
+        </div>
+        <div style={{ padding: 20 }}>
           <button>Submit</button>
         </div>
       </form>
